@@ -9,7 +9,7 @@ const estado = reactive({
   segundo: 0,
   resultado: 0,
   operadores: ['somar','subtracao','multiplicar','dividir','exponenciacao','raiz'],
-  atual: ''
+  atual: 'somar'
 })
 
 function somar(){
