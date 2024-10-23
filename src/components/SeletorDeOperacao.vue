@@ -30,6 +30,6 @@
                 linear-gradient(45deg, #ff0000, #ff9900, #ff00ff) border-box; 
     border: 3px solid transparent; 
     background-color: #1f1f2e;
+    outline: none;
 }
-
 </style>
