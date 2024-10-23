@@ -1,11 +1,11 @@
 <script setup>
-    const props = defineProps(['primeiroNumero', 'segundoNumero'])
+    const props = defineProps(['primeiroNumero', 'segundoNumero', 'operadores'])
 </script>
 <template>
     <h2>Insira os números:</h2>
         <div class="numeros">
-            <input type="number" @keyup="props.primeiroNumero">
-            <input type="number" @keyup="props.segundoNumero">
+            <input type="number" @keyup="props.primeiroNumero" @change="props.operadores">
+            <input type="number" @keyup="props.segundoNumero" @change="props.operadores">
         </div>
 </template>
 <style scoped>

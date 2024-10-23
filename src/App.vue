@@ -7,7 +7,9 @@ import Resultado from './components/Resultado.vue';
 const estado = reactive({
   primeiro: 0,
   segundo: 0,
-  resultado: 0
+  resultado: 0,
+  operadores: ['somar','subtracao','multiplicar','dividir','exponenciacao','raiz'],
+  atual: ''
 })
 
 function somar(){
@@ -46,21 +48,27 @@ function realizarOperacao(operacao) {
   switch (operacao) {
     case 'somar':
       somar();
+      estado.atual = estado.operadores[0]
       break;
     case 'subtracao':
       subtracao();
+      estado.atual = estado.operadores[1]
       break;
     case 'multiplicar':
       multiplicar();
+      estado.atual = estado.operadores[2]
       break;
     case 'dividir':
       dividir();
+      estado.atual = estado.operadores[3]
       break;
     case 'exponenciacao':
       exponenciacao();
+      estado.atual = estado.operadores[4]
       break;
     case 'raiz':
       raiz();
+      estado.atual = estado.operadores[5]
       break;
   }
 }
@@ -70,7 +78,7 @@ function realizarOperacao(operacao) {
   <body>  
     <div class="container">
       <h1 class="mt-5 mb-5">Calculadora Aritimética</h1>
-      <Numeros :primeiro-numero="evento => estado.primeiro = evento.target.value" :segundo-numero="evento => estado.segundo = evento.target.value"/>
+      <Numeros :primeiro-numero="evento => estado.primeiro = evento.target.value" :segundo-numero="evento => estado.segundo = evento.target.value" :operadores="realizarOperacao(estado.atual)"/>
       <SeletorDeOperacao :realizar-operacao="evento => realizarOperacao(evento.target.value)"/>
       <Resultado :resultado="estado.resultado"/>
     </div>
